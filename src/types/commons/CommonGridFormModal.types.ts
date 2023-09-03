@@ -12,8 +12,3 @@ export interface ActionColumn {
     icon: (props: CustomIconProps) => JSX.Element;
     onIconClickLink: (row: any) => string;
 }
-
-export interface ActionHeader {
-    id: string;
-    component: FunctionComponent;
-}

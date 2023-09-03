@@ -5,17 +5,12 @@ import darkTheme from '../../utils/theme/darkTheme';
 import lightTheme from '../../utils/theme/lightTheme';
 import { Dispatch, SetStateAction, useState } from 'react';
 import Grid from '../../commons/Grid';
-import VisibilityRoundedIcon from '@mui/icons-material/VisibilityRounded';
-import Edit from '@mui/icons-material/Edit';
-import { Add, DarkMode, DeleteOutline, LightMode } from '@mui/icons-material';
+import { DarkMode, LightMode } from '@mui/icons-material';
 import St from '../../commons/StyledComponents/CommonStyledComponents.styled';
 import { useGetUserDetails, useGetUserRepositories, useGetUsers } from '../../hooks/api/users.hook';
-import { ActionColumn, ActionHeader } from '../../types/commons/CommonGridFormModal.types';
-import { Repositorie, User } from '../../types/users/Users.types';
+import { Repositorie } from '../../types/users/Users.types';
 import DisplayInfo from '../../commons/DisplayInfo';
 import { Link } from 'gatsby';
-
-// import backgroundImg from "../assets/img/backgroundImg.jpeg";
 
 const UserDetailPage: React.FC<{ props: Props }> = ({ props }: { props: Props }) => {
     const {

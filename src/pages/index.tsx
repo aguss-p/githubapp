@@ -1,16 +1,15 @@
 import * as React from 'react';
-import { Switch, Theme, ThemeProvider, Typography, createTheme } from '@mui/material';
+import { Switch, Theme, ThemeProvider, createTheme } from '@mui/material';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import darkTheme from '../utils/theme/darkTheme';
 import lightTheme from '../utils/theme/lightTheme';
 import { Dispatch, SetStateAction, useState } from 'react';
 import Grid from '../commons/Grid';
 import VisibilityRoundedIcon from '@mui/icons-material/VisibilityRounded';
-import Edit from '@mui/icons-material/Edit';
-import { Add, DarkMode, DeleteOutline, LightMode } from '@mui/icons-material';
+import { DarkMode, LightMode } from '@mui/icons-material';
 import St from '../commons/StyledComponents/CommonStyledComponents.styled';
 import { useGetUsers } from '../hooks/api/users.hook';
-import { ActionColumn, ActionHeader } from '../types/commons/CommonGridFormModal.types';
+import { ActionColumn } from '../types/commons/CommonGridFormModal.types';
 import { User } from '../types/users/Users.types';
 // import backgroundImg from "../assets/img/backgroundImg.jpeg";
 
