@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Grid, Stack, Typography, Theme } from '@mui/material';
 import St from './DisplayInfo.styled';
 import CustomLoader from '../CustomLoader';
+import moment from 'moment';
 
 const DisplayInfo = (props: Props) => {
     const { data, isLoading, theme } = props;
@@ -10,16 +11,16 @@ const DisplayInfo = (props: Props) => {
         <St.InfoWrapper container>
             {isLoading ? (
                 Array(4).map(i => (
-                    <Grid key={i} xs={12} sm={12} md={6} lg={3}>
+                    <Grid item key={i} xs={12} sm={12} md={6} lg={3}>
                         <CustomLoader />
                     </Grid>
                 ))
             ) : (
                 <>
-                    <Grid xs={12} style={{ display: 'flex', justifyContent: 'center' }}>
-                        <Grid xs={12} md={4}>
+                    <Grid item xs={12} style={{ display: 'flex', justifyContent: 'center' }}>
+                        <Grid item xs={12} md={4}>
                             <St.InfoHeaderCard>
-                                <Grid xs={5} md={6}>
+                                <Grid item xs={5} md={6}>
                                     <St.AvatarContainer>
                                         <img
                                             style={{ borderRadius: '100%', marginTop: '4px' }}
@@ -29,7 +30,7 @@ const DisplayInfo = (props: Props) => {
                                         />
                                     </St.AvatarContainer>
                                 </Grid>
-                                <Grid xs={7} md={8}>
+                                <Grid item xs={7} md={8}>
                                     <Typography
                                         fontWeight={600}
                                         variant="h4"
@@ -43,6 +44,7 @@ const DisplayInfo = (props: Props) => {
                     {data?.info?.map((info: { label: string; value: any }) => (
                         <Grid
                             key={info.value}
+                            item
                             xs={12}
                             sm={12}
                             md={info.label === 'ID:' ? 4 : info.label === 'Profile URL:' ? 8 : 6}
@@ -62,7 +64,10 @@ const DisplayInfo = (props: Props) => {
                                         fontSize="18px"
                                         variant="subtitle1"
                                         color={theme.palette.common.black}>
-                                        {info?.value}
+                                        {info.label === 'Created at:'
+                                            ? moment(info?.value).format('DD-MM-YYYY, hh:mm:ss') +
+                                              ' hs'
+                                            : info?.value}
                                     </Typography>
                                 </St.InfoStack>
                             </St.InfoCard>

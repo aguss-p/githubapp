@@ -89,7 +89,7 @@ const UsersPageContainer: React.FC<any> = () => {
                     sx={{ color: `${theme.palette.primary.main}`, cursor: 'pointer' }}
                 />
             ),
-            onIconClickLink: (row: any) => `/users/${row.login}/`,
+            onIconClickLink: (row: any) => `/users/${row.login}`,
         },
     ];
 

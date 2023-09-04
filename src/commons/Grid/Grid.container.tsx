@@ -61,7 +61,7 @@ const GridContainer = (props: Props) => {
                 return (
                     <Stack key={row.id} direction="row" spacing={2}>
                         <St.Tooltip title={actionCol.id}>
-                            <Link to={`/users/${row.login}/`}>
+                            <Link to={actionCol.onIconClickLink(row)}>
                                 <Box>
                                     <Icon
                                         sx={{ color: 'secondary.main', cursor: 'pointer' }}
