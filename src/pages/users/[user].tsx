@@ -72,12 +72,12 @@ const UserDetailPage: React.FC<{ props: Props }> = ({ props }: { props: Props })
         </main>
     );
 };
-const UserDetailsContainer: React.FC<any> = ({ location }) => {
+const UserDetailsContainer: React.FC<any> = ({ params }) => {
     const [darkMode, setDarkMode] = useState<boolean>(true);
     const [needRefetch, setNeedRefetch] = useState<boolean>(false);
     const queryClient: QueryClient = new QueryClient();
-    const user: string | null = location ? new URLSearchParams(location.search).get('user') : '';
 
+    const user: string | null = params ? (params.user ?? '').replace('/', '') : '';
     const theme = React.useMemo(() => {
         const currentTheme = createTheme(darkMode ? darkTheme : lightTheme);
         return currentTheme;
