@@ -34,7 +34,7 @@ const Grid = (props: Props) => {
                     ) : (data?.length ?? 0) === 0 ? (
                         <St.ChipContainer>
                             <St.StatusChip
-                                label={`"Not ${title.toLocaleLowerCase()} found.`}
+                                label={`Not ${title.toLocaleLowerCase()} found.`}
                                 sx={{ borderRadius: '2rem !important' }}
                             />
                         </St.ChipContainer>
