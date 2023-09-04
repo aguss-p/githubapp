@@ -25,9 +25,6 @@ export default {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        // '>ul>li>button': {
-        //     color: theme.palette.common.black,
-        // },
         '>ul>li>*': {
             color: theme.palette.common.black,
         },

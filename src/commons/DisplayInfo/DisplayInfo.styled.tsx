@@ -1,4 +1,4 @@
-import { Box, Card, Grid, Stack, styled } from '@mui/material';
+import { Box, Card, Chip, Grid, Stack, styled } from '@mui/material';
 
 export default {
     InfoWrapper: styled(Grid)(({ theme }) => ({
@@ -32,5 +32,17 @@ export default {
         maxWidth: '60px',
         borderRadius: '100%',
         objectFit: 'contain',
+    })),
+    ChipContainer: styled(Box)(({ theme }) => ({
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '10rem',
+    })),
+    StatusChip: styled(Chip)(({ theme }) => ({
+        backgroundColor: theme.palette.primary.main,
+        opacity: 0.8,
+        fontWeight: 700,
+        color: theme.palette.common.black,
     })),
 };

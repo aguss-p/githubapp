@@ -15,7 +15,7 @@ const DisplayInfo = (props: Props) => {
                         <CustomLoader />
                     </Grid>
                 ))
-            ) : (
+            ) : data ? (
                 <>
                     <Grid item xs={12} style={{ display: 'flex', justifyContent: 'center' }}>
                         <Grid item xs={12} md={4}>
@@ -74,6 +74,13 @@ const DisplayInfo = (props: Props) => {
                         </Grid>
                     ))}
                 </>
+            ) : (
+                <St.ChipContainer>
+                    <St.StatusChip
+                        label="Error try again later."
+                        sx={{ borderRadius: '2rem !important' }}
+                    />
+                </St.ChipContainer>
             )}
         </St.InfoWrapper>
     );
