@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { Refresh } from '@mui/icons-material';
-import { Grid, IconButton, Stack, Typography, Theme } from '@mui/material';
+import { Grid, Stack, Typography, Theme } from '@mui/material';
 import St from './DisplayInfo.styled';
 import CustomLoader from '../CustomLoader';
 
@@ -26,7 +25,7 @@ const DisplayInfo = (props: Props) => {
                                             style={{ borderRadius: '100%', marginTop: '4px' }}
                                             width={'70px'}
                                             height={'70px'}
-                                            src={data.header.avatar}
+                                            src={data?.header?.avatar}
                                         />
                                     </St.AvatarContainer>
                                 </Grid>
@@ -35,13 +34,13 @@ const DisplayInfo = (props: Props) => {
                                         fontWeight={600}
                                         variant="h4"
                                         color={theme.palette.primary.main}>
-                                        {data.header.login}
+                                        {data?.header?.login}
                                     </Typography>
                                 </Grid>
                             </St.InfoHeaderCard>
                         </Grid>
                     </Grid>
-                    {data.info.map((info: { label: string; value: any }) => (
+                    {data?.info?.map((info: { label: string; value: any }) => (
                         <Grid
                             key={info.value}
                             xs={12}
@@ -54,7 +53,7 @@ const DisplayInfo = (props: Props) => {
                                         fontWeight={500}
                                         variant="subtitle1"
                                         color={theme.palette.common.black}>
-                                        {info.label}
+                                        {info?.label}
                                     </Typography>
                                 </Stack>
                                 <St.InfoStack>
@@ -63,7 +62,7 @@ const DisplayInfo = (props: Props) => {
                                         fontSize="18px"
                                         variant="subtitle1"
                                         color={theme.palette.common.black}>
-                                        {info.value}
+                                        {info?.value}
                                     </Typography>
                                 </St.InfoStack>
                             </St.InfoCard>

@@ -8,7 +8,6 @@ export default {
     })),
     GridWrapper: styled(Box)(({ theme }) =>
         theme.unstable_sx({
-            // maxWidth: { xs: window.innerWidth - 32, md: 'auto' },
             marginTop: { xs: '48rem', md: '32rem', lg: '23.5rem' },
             marginX: 'auto',
             paddingX: '5px',
@@ -17,7 +16,7 @@ export default {
             right: 0,
             zIndex: 10,
             display: 'block',
-            maxWidth: { xs: `calc(${window.innerWidth}px - 2rem)`, md: 'auto' },
+            maxWidth: { xs: `calc(100vw - 2rem)`, md: 'auto' },
         }),
     ),
     BackgroundImg: styled(Box)(({ theme }) => ({
@@ -97,7 +96,6 @@ export default {
     })),
     UserDetailCardContainer: styled(Stack)(({ theme }) =>
         theme.unstable_sx({
-            // maxWidth: { xs: window.innerWidth - 32, md: 'auto' },
             marginTop: '5rem',
             position: 'fixed',
             left: 0,
@@ -105,7 +103,7 @@ export default {
             zIndex: 10,
             marginX: 'auto',
             display: 'block',
-            maxWidth: { xs: `calc(${window.innerWidth}px - 2rem)`, md: 'auto' },
+            maxWidth: { xs: `calc(100vw - 2rem)`, md: 'auto' },
         }),
     ),
 };

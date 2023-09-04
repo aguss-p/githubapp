@@ -3,7 +3,6 @@ import * as React from 'react';
 import St from './Grid.styled';
 import CustomLoader from '../CustomLoader';
 import Header from './Header';
-import { ActionHeader } from '../../types/commons/CommonGridFormModal.types';
 import { TableColumn } from 'react-data-table-component';
 
 const Grid = (props: Props) => {
@@ -15,18 +14,12 @@ const Grid = (props: Props) => {
         isLoading,
         refetch,
         title,
-        extraActionsInHeader,
         acumulatedPages,
         withPagination,
     } = props;
     return (
         <St.Card>
-            <Header
-                title={title}
-                refetch={refetch}
-                loading={isLoading}
-                extraActionsInHeader={extraActionsInHeader}
-            />
+            <Header title={title} refetch={refetch} loading={isLoading} />
             {isLoading ? (
                 <CustomLoader />
             ) : (
@@ -54,7 +47,11 @@ const Grid = (props: Props) => {
                                 },
                             }}
                             responsive={true}
-                            data={data}
+                            data={[
+                                { id: 1, login: 'messi' },
+                                { id: 2, login: 'sese' },
+                            ]}
+                            // data={data}
                             columns={columns}
                         />
                     )}
@@ -85,7 +82,6 @@ interface Props {
     isLoading: boolean;
     refetch: Function;
     title: string;
-    extraActionsInHeader?: ActionHeader[];
     setPage: Function;
     page: number;
     acumulatedPages: number;

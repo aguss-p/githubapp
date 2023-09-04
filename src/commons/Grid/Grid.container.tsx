@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { useGetUsers } from '../../hooks/api/users.hook';
 import { Box, Icon, Stack } from '@mui/material';
-import { ActionColumn, ActionHeader } from '../../types/commons/CommonGridFormModal.types';
+import { ActionColumn } from '../../types/commons/CommonGridFormModal.types';
 import Grid from './Grid';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import St from './Grid.styled';
 import { Link } from 'gatsby';
+// import { Link } from '@reach/router';
 
 const GridContainer = (props: Props) => {
     const {
@@ -60,7 +61,7 @@ const GridContainer = (props: Props) => {
                 return (
                     <Stack key={row.id} direction="row" spacing={2}>
                         <St.Tooltip title={actionCol.id}>
-                            <Link to={actionCol.onIconClickLink(row)}>
+                            <Link to={`/users/${row.login}/`}>
                                 <Box>
                                     <Icon
                                         sx={{ color: 'secondary.main', cursor: 'pointer' }}
@@ -106,7 +107,6 @@ interface Props {
     title: string;
     columns: Array<any>;
     customActionColumns?: ActionColumn[];
-    extraActionsInHeader?: ActionHeader[];
     needRefetch: boolean;
     withPagination?: boolean;
     setNeedRefetch: Dispatch<SetStateAction<boolean>>;

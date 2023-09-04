@@ -54,7 +54,7 @@ const UserDetailPage: React.FC<{ props: Props }> = ({ props }: { props: Props })
                             </St.SwitchCard>
                         </St.UserDetailHeader>
                         <St.UserDetailCardContainer>
-                            <DisplayInfo fetchHook={useGetUserDetails} user={user} />
+                            <DisplayInfo fetchHook={useGetUserDetails} user={user ?? ''} />
                         </St.UserDetailCardContainer>
                         <St.GridWrapper>
                             <Grid
@@ -62,8 +62,8 @@ const UserDetailPage: React.FC<{ props: Props }> = ({ props }: { props: Props })
                                 columns={columns}
                                 needRefetch={needRefetch}
                                 setNeedRefetch={setNeedRefetch}
-                                fetchHook={() => useGetUserRepositories(user)}
-                                user={user}
+                                fetchHook={() => useGetUserRepositories(user ?? '')}
+                                user={user ?? ''}
                             />
                         </St.GridWrapper>
                     </St.PageWrapper>
@@ -72,12 +72,11 @@ const UserDetailPage: React.FC<{ props: Props }> = ({ props }: { props: Props })
         </main>
     );
 };
-const UserDetailsContainer: React.FC<{}> = () => {
+const UserDetailsContainer: React.FC<any> = ({ location }) => {
     const [darkMode, setDarkMode] = useState<boolean>(true);
     const [needRefetch, setNeedRefetch] = useState<boolean>(false);
     const queryClient: QueryClient = new QueryClient();
-    const params = new URLSearchParams(location.search);
-    const user: string = params.get('user') ?? '';
+    const user: string | null = location ? new URLSearchParams(location.search).get('user') : '';
 
     const theme = React.useMemo(() => {
         const currentTheme = createTheme(darkMode ? darkTheme : lightTheme);
@@ -129,7 +128,7 @@ interface Props {
     queryClient: QueryClient;
     needRefetch: boolean;
     setNeedRefetch: Dispatch<SetStateAction<boolean>>;
-    user: string;
+    user: string | null;
 }
 
 export default UserDetailsContainer;

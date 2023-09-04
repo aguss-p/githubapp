@@ -1,9 +1,9 @@
 exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    resolve: {
-      fallback: {
-        fs: false
-      }
-    }
-  })
-}
+    actions.setWebpackConfig({
+        resolve: {
+            fallback: {
+                fs: false,
+            },
+        },
+    });
+};

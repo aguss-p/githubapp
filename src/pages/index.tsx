@@ -53,7 +53,7 @@ const UsersPage: React.FC<{ props: Props }> = ({ props }: { props: Props }) => {
         </main>
     );
 };
-const UsersPageContainer: React.FC<any> = ({ location }) => {
+const UsersPageContainer: React.FC<any> = () => {
     const [darkMode, setDarkMode] = useState<boolean>(true);
     const [needRefetch, setNeedRefetch] = useState<boolean>(false);
     const queryClient: QueryClient = new QueryClient();
@@ -89,7 +89,7 @@ const UsersPageContainer: React.FC<any> = ({ location }) => {
                     sx={{ color: `${theme.palette.primary.main}`, cursor: 'pointer' }}
                 />
             ),
-            onIconClickLink: (row: any) => `/users?user=${row.login}`,
+            onIconClickLink: (row: any) => `/users/${row.login}/`,
         },
     ];
 
