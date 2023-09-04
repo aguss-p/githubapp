@@ -27,14 +27,14 @@ const Grid = (props: Props) => {
                     {data === null ? (
                         <St.ChipContainer>
                             <St.StatusChip
-                                label="Error vuelva a intentarlo más tarde"
+                                label="Error try again later."
                                 sx={{ borderRadius: '2rem !important' }}
                             />
                         </St.ChipContainer>
                     ) : (data?.length ?? 0) === 0 ? (
                         <St.ChipContainer>
                             <St.StatusChip
-                                label="No se encontraron usuarios"
+                                label={`"Not ${title.toLocaleLowerCase()} found.`}
                                 sx={{ borderRadius: '2rem !important' }}
                             />
                         </St.ChipContainer>
@@ -47,11 +47,7 @@ const Grid = (props: Props) => {
                                 },
                             }}
                             responsive={true}
-                            data={[
-                                { id: 1, login: 'messi' },
-                                { id: 2, login: 'sese' },
-                            ]}
-                            // data={data}
+                            data={data}
                             columns={columns}
                         />
                     )}
@@ -60,7 +56,6 @@ const Grid = (props: Props) => {
             {withPagination && (
                 <St.Pagination
                     onChange={(event: React.ChangeEvent<unknown>, value: number) => {
-                        console.log('page,', value);
                         setPage(value);
                     }}
                     page={page}
