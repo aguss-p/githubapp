@@ -1,32 +1,34 @@
 import { Box, styled, Button, Card, Stack, Dialog, Typography } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
-import { Height } from '@mui/icons-material';
 
 export default {
     PageWrapper: styled(Box)(({ theme }) => ({
-        height: '100vh',
+        // height: '100vh',
+        minHeight: '100vh',
+        overflowY: 'auto',
+        position: 'relative',
+        backgroundColor: 'black',
     })),
     GridWrapper: styled(Box)(({ theme }) =>
         theme.unstable_sx({
             marginTop: { xs: '48rem', md: '32rem', lg: '23.5rem' },
             marginX: 'auto',
             paddingX: '5px',
-            position: 'fixed',
+            position: 'absolute',
             left: 0,
             right: 0,
             zIndex: 10,
             display: 'block',
-            maxWidth: { xs: `calc(100vw - 2rem)`, md: 'auto' },
+            maxWidth: { xs: `calc(100vw - 4rem)`, md: 'auto' },
         }),
     ),
     BackgroundImg: styled(Box)(({ theme }) => ({
-        position: 'fixed',
-        left: 0,
+        position: 'absolute',
+        top: 0,
         right: 0,
         zIndex: 1,
-        display: 'block',
-        width: '100vw',
-        height: '100vh',
+        width: '100%',
+        height: '100%',
         backgroundImage: "url('/backgroundImg.jpg')",
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
@@ -34,9 +36,9 @@ export default {
     })),
     BackgroundFilter: styled(Box)(({ theme }) => ({
         position: 'fixed',
-        left: 0,
+        top: 0,
         right: 0,
-        zIndex: 1,
+        zIndex: 2,
         display: 'block',
         width: '100vw',
         height: '100vh',
@@ -73,7 +75,7 @@ export default {
         flexDirection: 'row',
     })),
     UserDetailHeader: styled(Stack)(({ theme }) => ({
-        position: 'fixed',
+        position: 'absolute',
         zIndex: 10,
         display: 'flex',
         gap: '3px',
@@ -97,7 +99,7 @@ export default {
     UserDetailCardContainer: styled(Stack)(({ theme }) =>
         theme.unstable_sx({
             marginTop: '5rem',
-            position: 'fixed',
+            position: 'absolute',
             left: 0,
             right: 0,
             zIndex: 10,

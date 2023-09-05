@@ -28,8 +28,6 @@ const UsersPage: React.FC<{ props: Props }> = ({ props }: { props: Props }) => {
         <main>
             <ThemeProvider theme={theme}>
                 <QueryClientProvider client={queryClient}>
-                    <St.BackgroundImg />
-                    {!darkMode && <St.BackgroundFilter />}
                     <St.SwitchCointainer>
                         <St.SwitchCard>
                             <LightMode style={{ color: '#ffc161' }} />
@@ -49,6 +47,8 @@ const UsersPage: React.FC<{ props: Props }> = ({ props }: { props: Props }) => {
                         />
                     </St.GridWrapper>
                 </QueryClientProvider>
+                <St.BackgroundImg />
+                {!darkMode && <St.BackgroundFilter />}
             </ThemeProvider>
         </main>
     );

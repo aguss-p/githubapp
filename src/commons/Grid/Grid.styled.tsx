@@ -8,13 +8,9 @@ export default {
     Card: styled(Card)(({ theme }) =>
         theme.unstable_sx({
             zIndex: 99,
+            marginBottom: '2rem',
             borderRadius: '12px',
             backgroundColor: theme.palette.common.white,
-            maxHeight: {
-                xs: 'calc(100vh - 49rem)',
-                md: 'calc(100vh - 23rem)',
-                lg: 'calc(100vh - 14.5rem)',
-            },
             '>div': {
                 borderRadius: 'unset',
             },

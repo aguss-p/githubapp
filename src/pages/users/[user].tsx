@@ -10,8 +10,8 @@ import St from '../../commons/StyledComponents/CommonStyledComponents.styled';
 import { useGetUserDetails, useGetUserRepositories, useGetUsers } from '../../hooks/api/users.hook';
 import { Repositorie } from '../../types/users/Users.types';
 import DisplayInfo from '../../commons/DisplayInfo';
+import { ArrowBack } from '@mui/icons-material';
 import { Link } from 'gatsby';
-
 const UserDetailPage: React.FC<{ props: Props }> = ({ props }: { props: Props }) => {
     const {
         queryClient,
@@ -25,51 +25,51 @@ const UserDetailPage: React.FC<{ props: Props }> = ({ props }: { props: Props })
     } = props;
 
     return (
-        <main>
-            <ThemeProvider theme={theme}>
-                <QueryClientProvider client={queryClient} contextSharing={true}>
-                    <St.BackgroundImg />
-                    <St.PageWrapper>
-                        {!darkMode && <St.BackgroundFilter />}
-                        <St.UserDetailHeader>
-                            <Link to="/" style={{ textDecoration: 'none' }}>
-                                <St.SwitchCard
-                                    style={{ backgroundColor: theme.palette.primary.main }}>
-                                    <Typography
-                                        fontWeight={500}
-                                        variant="h5"
-                                        color={theme.palette.common.black}>
-                                        GO TO USERS
-                                    </Typography>
-                                </St.SwitchCard>
-                            </Link>
+        <>
+            <main>
+                <ThemeProvider theme={theme}>
+                    <QueryClientProvider client={queryClient} contextSharing={true}>
+                        <St.PageWrapper>
+                            <St.UserDetailHeader>
+                                <Link to="/" style={{ textDecoration: 'none' }}>
+                                    <St.SwitchCard
+                                        style={{ backgroundColor: theme.palette.primary.main }}>
+                                        <ArrowBack sx={{ color: 'white' }} />
+                                        <Typography fontWeight={400} variant="h6" color="white">
+                                            BACK TO USERS
+                                        </Typography>
+                                    </St.SwitchCard>
+                                </Link>
 
-                            <St.SwitchCard>
-                                <LightMode style={{ color: '#ffc161' }} />
-                                <Switch
-                                    checked={darkMode}
-                                    onChange={() => setDarkMode(!darkMode)}
+                                <St.SwitchCard>
+                                    <LightMode style={{ color: '#ffc161' }} />
+                                    <Switch
+                                        checked={darkMode}
+                                        onChange={() => setDarkMode(!darkMode)}
+                                    />
+                                    <DarkMode style={{ color: '#ffffff' }} />
+                                </St.SwitchCard>
+                            </St.UserDetailHeader>
+                            <St.UserDetailCardContainer>
+                                <DisplayInfo fetchHook={useGetUserDetails} user={user ?? ''} />
+                            </St.UserDetailCardContainer>
+                            <St.GridWrapper>
+                                <Grid
+                                    title="Repositories"
+                                    columns={columns}
+                                    needRefetch={needRefetch}
+                                    setNeedRefetch={setNeedRefetch}
+                                    fetchHook={() => useGetUserRepositories(user ?? '')}
+                                    user={user ?? ''}
                                 />
-                                <DarkMode style={{ color: '#ffffff' }} />
-                            </St.SwitchCard>
-                        </St.UserDetailHeader>
-                        <St.UserDetailCardContainer>
-                            <DisplayInfo fetchHook={useGetUserDetails} user={user ?? ''} />
-                        </St.UserDetailCardContainer>
-                        <St.GridWrapper>
-                            <Grid
-                                title="Repositories"
-                                columns={columns}
-                                needRefetch={needRefetch}
-                                setNeedRefetch={setNeedRefetch}
-                                fetchHook={() => useGetUserRepositories(user ?? '')}
-                                user={user ?? ''}
-                            />
-                        </St.GridWrapper>
-                    </St.PageWrapper>
-                </QueryClientProvider>
-            </ThemeProvider>
-        </main>
+                            </St.GridWrapper>
+                        </St.PageWrapper>
+                    </QueryClientProvider>
+                    {!darkMode && <St.BackgroundFilter />}
+                    <St.BackgroundImg />
+                </ThemeProvider>
+            </main>
+        </>
     );
 };
 const UserDetailsContainer: React.FC<any> = ({ params }) => {

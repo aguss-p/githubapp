@@ -31,10 +31,7 @@ const DisplayInfo = (props: Props) => {
                                     </St.AvatarContainer>
                                 </Grid>
                                 <Grid item xs={7} md={8}>
-                                    <Typography
-                                        fontWeight={600}
-                                        variant="h4"
-                                        color={theme.palette.primary.main}>
+                                    <Typography fontWeight={600} variant="h4" color="white">
                                         {data?.header?.login}
                                     </Typography>
                                 </Grid>
@@ -51,10 +48,7 @@ const DisplayInfo = (props: Props) => {
                             lg={info.label === 'ID:' ? 2 : info.label === 'Profile URL:' ? 4 : 3}>
                             <St.InfoCard>
                                 <Stack>
-                                    <Typography
-                                        fontWeight={500}
-                                        variant="subtitle1"
-                                        color={theme.palette.common.black}>
+                                    <Typography fontWeight={500} variant="subtitle1" color="white">
                                         {info?.label}
                                     </Typography>
                                 </Stack>
@@ -63,7 +57,7 @@ const DisplayInfo = (props: Props) => {
                                         fontWeight={600}
                                         fontSize="18px"
                                         variant="subtitle1"
-                                        color={theme.palette.common.black}>
+                                        color="white">
                                         {info.label === 'Created at:'
                                             ? moment(info?.value).format('DD-MM-YYYY, hh:mm:ss') +
                                               ' hs'
